@@ -1,0 +1,155 @@
+<!--The content below is only a placeholder and can be replaced.
+<div style="text-align:center">
+  <h1>
+    Bienvenido a {{ title }}!
+  </h1>
+  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+</div>
+<h2>Here are some links to help you start: </h2>
+<ul>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
+  </li>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
+  </li>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
+  </li>
+</ul>
+-->
+
+<p>Component Creado a manual</p>
+<hello-world></hello-world>
+<hello-world></hello-world>
+<hello-world></hello-world>
+<br>
+<p>Component Creado a por CLI</p>
+<app-hola-mundo></app-hola-mundo>
+
+<br>
+<p>Listar un arreglo *ngFor</p>
+<ul>
+  <li>{{users[0]}}</li>
+  <li>{{users[1]}}</li>
+  <li>{{users[2]}}</li>
+</ul>
+
+<br>
+<p>Listar Arreglo Dinamicamente *ngFor</p>
+<ul>
+  <li *ngFor="let user of users">
+    {{user}}
+  </li>
+</ul>
+
+<br>
+<p>Condicionales *ngIf</p>
+<p *ngIf="activated">
+  Valor de activated es true desde app.conponent.ts
+</p>
+
+
+<br>
+<p> Entrada de dato a component user y listar arreglo de app.component.ts con *ngFor</p>
+<ul>
+  <li *ngFor="let user of users">
+    <app-user [nameUser]="user"></app-user>
+  </li>
+</ul>
+
+
+<br>
+<p>Entrada de dato a component user y listar arreglo de app.component.ts con *ngFor mas abreviado</p>
+<ul>
+  <app-user *ngFor="let user of users" [nameUser]="user"></app-user>
+</ul>
+
+
+<br>
+<p>Trabajando con tipo de datos en TypeScript</p>
+<div>
+  <p>name: {{name}}</p>
+  <p>age: {{age}}</p>
+  <p>Ciudad: {{address.city}}</p>
+  <p>Calle: {{address.street}}</p>
+  <div>Hobbies:
+    <ul>
+      <li *ngFor="let hobbie of hobbies">{{hobbie}}</li>
+    </ul>
+  </div>
+</div>
+
+<br>
+<p>Eventos</p>
+<div>
+  <ul>
+    <li *ngFor="let user of users2"> {{user}}</li>
+  </ul>
+
+  <button (click)="sayHello()">
+    Click Me!
+  </button>
+</div>
+
+
+<br>
+<p>Eventos part2</p>
+<div>
+  <ul>
+    <li *ngFor="let user of users2"> {{user}} |
+      <button (click)="sayHello()">Hello</button>
+    </li>
+  </ul>
+</div>
+
+
+<br>
+<p>Eventos part3 - deleteUser (Eliminar usuario)</p>
+<div>
+  <ul>
+    <li *ngFor="let user of users2"> {{user}} |
+      <button (click)="deleteUser(user)">X</button>
+    </li>
+  </ul>
+</div>
+
+
+<br>
+<p>Eventos part4 - sendUser (Enviar usuario) </p>
+<div>
+  <form (submit)="sendUser(newUser)">
+    <input type="text" #newUser>
+    <button>
+      Send
+    </button>
+  </form>
+
+  <ul>
+    <li *ngFor="let user of users2"> {{user}} |
+      <button (click)="deleteUser(user)">X</button>
+    </li>
+  </ul>
+</div>
+
+
+<br>
+<p>Creando Doble enlace (vinculacion de datos) </p>
+<div>
+  <form (submit)="sendUser(newUser)">
+    <input type="text" name="nombre" [(ngModel)]="nameDobleE">
+    <input type="text" name="edad" [(ngModel)]="ageDobleE">
+  </form>
+
+  Nombre: {{nameDobleE}} <br>
+  Edad: {{ageDobleE}}
+</div>
+
+
+<hr>
+<br>
+<p>Service https://jsonplaceholder.typicode.com/posts</p>
+<div *ngFor="let post of posts">
+  <h3>{{post.title}}</h3>
+  <p>{{post.body}}</p>
+</div>
