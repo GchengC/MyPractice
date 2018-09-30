@@ -5,7 +5,8 @@
   <div class="row">
     <div class="col-md-8 mt-4">
       <ul class="list-group">
-        <li class="list-group-item list-group-item-action" *ngFor="let employee of employeeArray"><span
+        <li class="list-group-item list-group-item-action" (click)="canEdit(employee)"
+            [class.active]="employee == selectedEmployee" *ngFor="let employee of employeeArray"><span
           class="badge badge-primary">{{employee.id}}</span> {{employee.name}} - {{employee.country}}
         </li>
       </ul>
@@ -13,8 +14,15 @@
         <div class="card-body">
           <div class="card-title">Inserta un nuevo Empleado</div>
           <div class="form-group">
-            <input class="form-control" type="text" placeholder="Inserte Primer Nombre" [(ngModel)]="selectedEmployee" >
+            <input class="form-control" type="text" placeholder="Inserte Primer Nombre"
+                   [(ngModel)]="selectedEmployee.name">
           </div>
+          <div>
+            <input type="text" class="form-control" placeholder="Inserte el Pais"
+                   [(ngModel)]="selectedEmployee.country">
+          </div>
+          <button class="btn btn-primary" (click)="addOrEdit()">Summit</button>
+          <button class="btn btn-danger" (click)="delete()"  *ngIf="selectedEmployee.id !== 0">Delete</button>
         </div>
       </div>
     </div>

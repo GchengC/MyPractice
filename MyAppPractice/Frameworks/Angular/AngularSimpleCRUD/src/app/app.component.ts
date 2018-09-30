@@ -16,4 +16,24 @@ export class AppComponent {
   ];
 
   selectedEmployee: Employee = new Employee();
+
+  addOrEdit() {
+    if (this.selectedEmployee.id === 0) {
+      this.selectedEmployee.id = this.employeeArray.length + 1;
+      this.employeeArray.push(this.selectedEmployee);
+    }
+
+    this.selectedEmployee = new Employee();
+  }
+
+  canEdit(employee: Employee) {
+    this.selectedEmployee = employee;
+  }
+
+  delete() {
+    if (confirm('¿Estas seguro de querer eliminarlo?')) {
+      this.employeeArray = this.employeeArray.filter(x => x !== this.selectedEmployee);
+    }
+    this.selectedEmployee = new Employee();
+  }
 }
